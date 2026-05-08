@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CodehubApplication<codehub>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.teamgit.codehub.CodehubApplication",
+            "projectName": "codehub",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
