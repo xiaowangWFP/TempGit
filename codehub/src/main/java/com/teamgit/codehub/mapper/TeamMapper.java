@@ -1,8 +1,9 @@
-package com.teamgit.mapper;
+package com.teamgit.codehub.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.teamgit.entity.Team;
-import org.apache.ibatis.annotations.Mapper;
+import com.teamgit.codehub.entity.Team;
 
 @Mapper
 public interface TeamMapper extends BaseMapper<Team> {
