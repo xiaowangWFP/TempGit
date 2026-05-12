@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
-@MapperScan("com.teamgit.mapper") // 扫描 Mapper 接口所在的包
+@MapperScan("com.teamgit.codehub.mapper") // 扫描 Mapper 接口所在的包
 @ComponentScan(basePackages = {"com.teamgit"}) // 扫描整个 com.teamgit 包下的所有组件
 @SpringBootApplication
 public class CodehubApplication {

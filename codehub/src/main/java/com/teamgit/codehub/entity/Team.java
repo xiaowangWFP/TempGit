@@ -1,8 +1,10 @@
-package com.teamgit.entity;
+package com.teamgit.codehub.entity;
 
 import java.time.LocalDateTime;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -26,7 +28,8 @@ public class Team {
     @Schema(description = "团队描述", example = "负责核心功能开发")
     private String description;
     
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     @Schema(description = "创建时间")
-    private LocalDateTime create_time;
+    private LocalDateTime createTime;
     
 }

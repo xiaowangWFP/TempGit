@@ -1,4 +1,4 @@
-package com.teamgit.config;
+package com.teamgit.codehub.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
