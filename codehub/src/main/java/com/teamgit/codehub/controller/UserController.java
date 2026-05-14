@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.teamgit.codehub.entity.User;
 import com.teamgit.codehub.service.UserService;
+import com.teamgit.common.Result;
+import com.teamgit.common.Result.ResultCode;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -26,9 +28,13 @@ public class UserController {
 
     @PostMapping("/register")
     @Operation(summary = "创建用户", description = "根据传入的用户信息创建新用户")
-    public String register(@RequestBody User user) {
-        boolean saved = userService.save(user);
-        return saved ? "用户创建成功" : "用户创建失败";
+    public Result<String> register(@RequestBody User user) {
+        boolean success = userService.save(user);
+        if (success) {
+            return Result.success(Result.ResultCode.SUCCESS, "用户注册成功");
+        } else {
+            return Result.error(ResultCode.UNKNOWN_ERROR);
+        }
     }
 
     @GetMapping("/list")

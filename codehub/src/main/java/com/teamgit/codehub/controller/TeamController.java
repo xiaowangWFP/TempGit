@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.teamgit.codehub.entity.Team;
 import com.teamgit.codehub.service.TeamService;
+import com.teamgit.common.Result;
+import com.teamgit.common.Result.ResultCode;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,9 +26,13 @@ public class TeamController {
 
     @PostMapping("/create")
     @Operation(summary = "创建团队", description = "根据传入的团队信息创建新团队")
-    public String createTeam(@RequestBody Team team) {
+    public Result<String> createTeam(@RequestBody Team team) {
         boolean saved = teamService.save(team);
-        return saved ? "团队创建成功" : "团队创建失败";
+        if (saved) {
+            return Result.success(Result.ResultCode.SUCCESS, "团队创建成功");
+        } else {
+            return Result.error(ResultCode.UNKNOWN_ERROR);
+        }
     }
 
     @GetMapping("/list")
